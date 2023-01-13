@@ -1,2 +1,5 @@
 rootProject.name = 'app'
+include 'config'
+include 'config:checkstyle'
+findProject(':config:checkstyle')?.name = 'checkstyle'
 

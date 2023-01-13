@@ -7,14 +7,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Differ {
 
     public static String generate(String filepath1, String filepath2) throws Exception {
         Path path1 = Paths.get(filepath1).toAbsolutePath().normalize();
         Path path2 = Paths.get(filepath2).toAbsolutePath().normalize();
-
 
         String content1 = Files.readString(path1);
         String content2 = Files.readString(path2);
@@ -31,10 +32,13 @@ public class Differ {
                 difference.append("+ " + key + " : " + fileToJson2.get(key) + "\n");
             } else if (!fileToJson2.containsKey(key)) {
                 difference.append("+ " + key + " : " + fileToJson1.get(key) + "\n");
-            }else if (fileToJson1.get(key).equals(fileToJson2.get(key))) {
-                difference.append("  " + key + " : " + fileToJson1.get(key) + "\n");
+            } else if (fileToJson1.get(key).equals(fileToJson2.get(key))) {
+                difference.append("  " + key + " : " + fileToJson1.get(key)
+                                                                            +
+                                                                        "\n");
             } else {
-                difference.append("- " + key + " : " +  fileToJson1.get(key) +
+                difference.append("- " + key + " : " +  fileToJson1.get(key)
+                                                                            +
                                 "\n+ " + key + " : " +  fileToJson2.get(key) + "\n");
             }
         }
@@ -44,7 +48,7 @@ public class Differ {
     }
     public static Map<String, Object> getMap(String content) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        Map<String, Object> file = mapper.readValue(content, new TypeReference<>() {});
+        Map<String, Object> file = mapper.readValue(content, new TypeReference<>() { });
 
 
         return file;
