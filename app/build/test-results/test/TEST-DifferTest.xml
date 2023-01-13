@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DifferTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-13T14:01:45" hostname="ruslan-Aspire-A515-54G" time="0.147">
+<testsuite name="DifferTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-13T14:56:19" hostname="ruslan-Aspire-A515-54G" time="0.143">
   <properties/>
-  <testcase name="correct()" classname="DifferTest" time="0.147"/>
+  <testcase name="correct()" classname="DifferTest" time="0.143"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
