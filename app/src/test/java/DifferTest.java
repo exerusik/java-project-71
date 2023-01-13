@@ -22,7 +22,7 @@ class DifferTest {
                 +
                 "+ verbose : true\n"
                 +
-                "}";
+                "}*";
 
         Assertions.assertEquals(actual, expected);
 
