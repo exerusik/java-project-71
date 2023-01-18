@@ -1,30 +1,25 @@
 import hexlet.code.Differ;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 class DifferTest {
+    private String filePath1 = "/home/ruslan/java-project-71/app/filepath1.json";
+    private String filePath2 = "/home/ruslan/java-project-71/app/filepath2.json";
+
+    private Path trueAnswer = Paths.get("/home/ruslan/java-project-71/app/src/test/resources/check");
+
     @Test
     public void correct() throws Exception {
-        var actual = Differ.generate("/home/ruslan/java-project-71/app/filepath1.json",
-                                    "/home/ruslan/java-project-71/app/filepath2.json");
-        var expected = "{\n"
-                +
-                "+ follow : false\n"
-                +
-                "  host : hexlet.io\n"
-                +
-                "+ proxy : 123.234.53.22\n"
-                +
-                "- timeout : 50\n"
-                +
-                "+ timeout : 20\n"
-                +
-                "+ verbose : true\n"
-                +
-                "}*";
+        var actual = Differ.generate(filePath1, filePath2);
 
-        Assertions.assertEquals(actual, expected);
+        var expected = Files.readString(trueAnswer);
 
+        assertThat(actual).isEqualTo(expected);
     }
 }
