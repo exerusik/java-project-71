@@ -20,13 +20,13 @@ class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        System.out.println(Differ.generate(filepath1, filepath2));
+        System.out.println(Differ.generate(filepath1, filepath2, format));
         return 0;
     }
 
     // this example implements Callable, so parsing, error handling and handling user
     // requests for usage help or version help can be done with one line of code.
-    public static void main(String... args) throws Exception {
+    public static void main(String... args)  {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
