@@ -25,7 +25,8 @@ public class Stylish {
                 case "CHANGED" :
                     buildString.append(SPACE.repeat(2) + "- " + element.getKey() + ": " + element.getValue() + "\n")
                             .append(SPACE.repeat(2) + "+ "  + element.getKey() + ": " + element.getOtherValue() + "\n");
-                default: throw new IllegalAccessException("This key dont exist");
+                default:
+                    String message = String.format("Unknown key");
             }
         }
         buildString.append("}");
