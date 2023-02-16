@@ -34,11 +34,4 @@ public class Node {
         return otherValue;
     }
 
-    public void setValue(Object value) {
-        this.value = value;
-    }
-
-    public void setOtherValue(Object otherValue) {
-        this.otherValue = otherValue;
-    }
 }

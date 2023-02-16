@@ -13,10 +13,7 @@ import java.util.Map;
 
 public class Parser {
 
-    public static Map<String, Object> getMap(String filepath1, String format) throws Exception {
-        Path path1 = Paths.get(filepath1);
-
-        String content1 = new String(Files.readAllBytes(path1));
+    public static Map<String, Object> parse(String content1, String format) throws Exception {
         switch (format) {
             case  "yml" :
                 return parseYML(content1);
