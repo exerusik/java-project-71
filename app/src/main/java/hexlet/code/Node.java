@@ -9,7 +9,7 @@ public class Node {
     public Node(String description, String key, Object value) {
         this.description = description;
         this.key = key;
-        this.value=value;
+        this.value = value;
     }
 
     public Node(String description, String key, Object value, Object otherValue) {
