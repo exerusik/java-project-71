@@ -25,7 +25,7 @@ public class Differ {
     }
     public static Map<String, Object> getMap(String filepath) throws Exception {
         Path path = Paths.get(filepath);
-        String file = new String(Files.readAllBytes(path));
+        String file = new String(Files.readString(path));
 
         String getFormat = filepath.substring(filepath.lastIndexOf(".") + 1);
         return parse(file, getFormat);

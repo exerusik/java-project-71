@@ -6,16 +6,17 @@ public class Node {
     private Object value;
     private Object otherValue;
 
+    public Node(String description, String key, Object value) {
+        this.description = description;
+        this.key = key;
+        this.value=value;
+    }
+
     public Node(String description, String key, Object value, Object otherValue) {
         this.description = description;
         this.key = key;
         this.value = value;
         this.otherValue = otherValue;
-    }
-
-    public Node(String key, Object value) {
-        this.key = key;
-        this.value=value;
     }
 
     public String getDescription() {

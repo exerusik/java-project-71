@@ -14,17 +14,17 @@ public class Stylish {
 
             switch (description) {
                 case "ADDED" :
-                    buildString.append("+ " + element.getKey() + ":" + element.getValue() + "\n");
+                    buildString.append(SPACE.repeat(2) + "+ " + element.getKey() + ": " + element.getValue() + "\n");
                     break;
                 case "DELETE" :
-                    buildString.append("- " + element.getKey() + ":" + element.getValue() + "\n");
+                    buildString.append(SPACE.repeat(2) + "- " + element.getKey() + ": " + element.getValue() + "\n");
                     break;
-                case "UNCANGED" :
-                    buildString.append(SPACE.repeat(2) + element.getKey() + ":" + element.getValue() + "\n");
+                case "UNCHANGED" :
+                    buildString.append(SPACE.repeat(4) + element.getKey() + ": " + element.getValue() + "\n");
                     break;
                 case "CHANGED" :
-                        buildString.append(SPACE.repeat(2) + element.getKey() + ":" + element.getValue() + "\n")
-                                   .append(SPACE.repeat(2) + element.getKey() + ":" + element.getOtherValue() + "\n");
+                        buildString.append(SPACE.repeat(2) + "- " + element.getKey() + ": " + element.getValue() + "\n")
+                                   .append(SPACE.repeat(2) + "+ "  + element.getKey() + ": " + element.getOtherValue() + "\n");
             }
         }
         buildString.append("}");
