@@ -28,7 +28,7 @@ class DifferTest {
 
     @Test
     public void testPlainWithJson() throws Exception {
-        String actual = Differ.generate(fileJson, file1Json,"plain");
+        String actual = Differ.generate(fileJson, file1Json, "plain");
         String expected = Files.readString(trueAnswerPlainStyle);
         assertThat(actual).isEqualTo(expected);
     }
@@ -42,7 +42,7 @@ class DifferTest {
 
     @Test
     public void testPlainWithYml() throws Exception {
-        String actual = Differ.generate(fileYml, file1Yml,"plain");
+        String actual = Differ.generate(fileYml, file1Yml, "plain");
         String expected = Files.readString(trueAnswerPlainStyle);
         assertThat(actual).isEqualTo(expected);
     }
