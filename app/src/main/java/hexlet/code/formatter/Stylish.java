@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Stylish {
     private static final String SPACE = " ";
-    public static String allDifference(List<Node> mergeDataFromTwoFiles) throws IllegalAccessException {
+    public static String allDifference(List<Node> mergeDataFromTwoFiles) throws Exception {
         StringBuilder buildString = new StringBuilder("{\n");
 
         for (Node element : mergeDataFromTwoFiles) {
@@ -26,7 +26,7 @@ public class Stylish {
                     buildString.append(SPACE.repeat(2) + "- " + element.getKey() + ": " + element.getValue() + "\n")
                             .append(SPACE.repeat(2) + "+ "  + element.getKey() + ": " + element.getOtherValue() + "\n");
                 default:
-                    String message = String.format("Unknown key");
+                    break;
             }
         }
         buildString.append("}");

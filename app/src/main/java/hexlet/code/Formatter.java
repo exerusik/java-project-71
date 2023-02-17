@@ -1,33 +1,27 @@
 package hexlet.code;
 
 
-import java.util.ArrayList;
+import hexlet.code.formatter.Json;
+import hexlet.code.formatter.Plain;
+import hexlet.code.formatter.Stylish;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.TreeSet;
+
 
 public class Formatter {
 
-    public static List<Node> format(Map<String, Object> map, Map<String, Object> map1) {
+    public static String format(List<Node> tree, String formatFile) throws Exception {
 
-        List<Node> mergeDataOfTwoFiles = new ArrayList<>();
+       switch (formatFile) {
+           case "stylish" :
+               return Stylish.allDifference(tree);
+           case "plain" :
+               return Plain.getPlain(tree);
+           case "json" :
+               return Json.writeJson(tree);
+           default:
+               String message = String.format("Unknown format file. Should be \"stylish\" , \" plain\" or \" json\"");
+               throw new Exception(message);
 
-        Set<String> allKey = new TreeSet<>(map.keySet());
-        allKey.addAll(map1.keySet());
-        for (String key : allKey) {
-            if (!map.containsKey(key)) {
-                mergeDataOfTwoFiles.add(new Node("ADDED", key, map1.get(key)));
-            } else if (!map1.containsKey(key)) {
-                mergeDataOfTwoFiles.add(new Node("DELETE", key, map.get(key)));
-            } else if (Objects.equals(map.get((key)), map1.get(key))) {
-                mergeDataOfTwoFiles.add(new Node("UNCHANGED", key, map.get(key), map1.get(key)));
-            } else {
-                mergeDataOfTwoFiles.add(new Node("CHANGED", key, map.get(key), map1.get(key)));
-            }
-        }
-
-        return mergeDataOfTwoFiles;
+       }
     }
 }

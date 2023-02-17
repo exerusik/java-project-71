@@ -9,34 +9,49 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 class DifferTest {
-    private String filePathJson = "src/test/resources/file.json";
-    private String filePathJson1 = "src/test/resources/file1.json";
-    private String filePathYML1 = "src/test/resources/file.yml";
-    private String filePathYML2 = "src/test/resources/file1.yml";
-    private String filePathJson2 = "src/test/resources/file2.json";
-    private String filePathJson3 = "src/test/resources/file3.json";
 
-    private Path trueAnswerJson = Paths.get("src/test/resources/checkJson");
-    private Path trueAnswerYML = Paths.get("src/test/resources/checkYML");
+    private String fileYml = "src/main/resources/file2.yml";
+    private String file1Yml = "src/main/resources/file3.yml";
+    private String fileJson = "src/main/resources/file2.json";
+    private String file1Json = "src/main/resources/file3.json";
+
+    private Path trueAnswerPlainStyle = Paths.get("src/test/resources/CheckPlain");
+    private Path trueAnswerStylish = Paths.get("src/test/resources/CheckStylish");
+
 
     @Test
-    public void correctJson() throws Exception {
-        var actual = Differ.generate(filePathJson, filePathJson1, "json");
-        var expected = Files.readString(trueAnswerJson);
+    public void testStylishWithJson() throws Exception {
+        var actual = Differ.generate(fileJson, file1Json);
+        var expected = Files.readString(trueAnswerStylish);
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
-    public void correctJsonAll() throws Exception {
-        var actual = Differ.generate(filePathJson2, filePathJson3, "json");
-        var expected = Files.readString(Paths.get("src/test/resources/CheckIncludJson"));
+    public void testPlainWithJson() throws Exception {
+        String actual = Differ.generate(fileJson, file1Json,"plain");
+        String expected = Files.readString(trueAnswerPlainStyle);
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
-    public void correctYML() throws Exception {
-        var actual = Differ.generate(filePathYML1, filePathYML2, "yml");
-        var expected = Files.readString(trueAnswerYML);
+    public void testStylishWithYml() throws Exception {
+        var actual = Differ.generate(fileYml, file1Yml);
+        var expected = Files.readString(trueAnswerStylish);
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void testPlainWithYml() throws Exception {
+        String actual = Differ.generate(fileYml, file1Yml,"plain");
+        String expected = Files.readString(trueAnswerPlainStyle);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void testJson() throws Exception {
+        String actual = Differ.generate(fileJson, file1Json, "json");
+        String expected = Files.readString(Paths.get("src/test/resources/checkJsonFile.json"));
+        assertThat(actual).isEqualTo(expected);
+
     }
 }

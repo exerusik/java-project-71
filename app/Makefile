@@ -1,4 +1,4 @@
 run-dist:
-	./build/install/app/bin/app src/test/resources/file2.json src/test/resources/file3.json
+	./build/install/app/bin/app src/main/resources/file.json src/main/resources/file1.json
 
 .PHONY: build

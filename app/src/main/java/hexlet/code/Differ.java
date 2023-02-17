@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.formatter.Plain;
 import hexlet.code.formatter.Stylish;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,8 +16,9 @@ public class Differ {
         Map<String, Object> fileToJson1 = getMap(filepath1);
         Map<String, Object> fileToJson2 = getMap(filepath2);
 
-        List<Node> diff = Formatter.format(fileToJson1, fileToJson2);
-        String result = Stylish.allDifference(diff);
+        List<Node> buildTree = DataStructure.treeData(fileToJson1, fileToJson2);
+
+        String result = Formatter.format(buildTree, formatFile);
         return result;
     }
 
