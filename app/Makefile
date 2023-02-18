@@ -8,7 +8,7 @@ run-json:
 	./build/install/app/bin/app -f json src/main/resources/file.json src/main/resources/file1.json
 
 build:
-	./gradlew build
+	./gradlew clean build
 
 report:
 	./gradlew jacocoTestReport
