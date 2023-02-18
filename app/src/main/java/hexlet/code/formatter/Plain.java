@@ -25,6 +25,7 @@ public class Plain {
                     break;
             }
         }
+        buildString.deleteCharAt(buildString.length() - 1);
         return buildString.toString();
     }
 
