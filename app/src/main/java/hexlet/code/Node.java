@@ -1,9 +1,9 @@
 package hexlet.code;
 
 public class Node {
-    private String description;
-    private String key;
-    private Object value;
+    private final String description;
+    private final String key;
+    private final Object value;
     private Object otherValue;
 
     public Node(String description, String key, Object value) {

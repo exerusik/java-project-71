@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Stylish {
     private static final String SPACE = " ";
-    public static String allDifference(List<Node> mergeDataFromTwoFiles) throws Exception {
+    public static String allDifference(List<Node> mergeDataFromTwoFiles) {
         StringBuilder buildString = new StringBuilder("{\n");
 
         for (Node element : mergeDataFromTwoFiles) {
