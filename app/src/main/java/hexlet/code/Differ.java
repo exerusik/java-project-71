@@ -14,7 +14,7 @@ public class Differ {
         Map<String, Object> fileToJson1 = getMap(filepath1);
         Map<String, Object> fileToJson2 = getMap(filepath2);
 
-        List<Node> buildTree = DataStructure.treeData(fileToJson1, fileToJson2);
+        List<Node> buildTree = BuildDiffer.getDifference(fileToJson1, fileToJson2);
 
         String result = Formatter.format(buildTree, formatFile);
         return result;
@@ -24,7 +24,7 @@ public class Differ {
         return generate(filepath1, filepath2, "stylish");
     }
     public static Map<String, Object> getMap(String filepath) throws Exception {
-        Path path = Paths.get(filepath);
+        Path path = Paths.get(filepath).toAbsolutePath().normalize();
         String file = new String(Files.readString(path));
 
         String getFormat = filepath.substring(filepath.lastIndexOf(".") + 1);

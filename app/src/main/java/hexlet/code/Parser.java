@@ -3,7 +3,6 @@ package hexlet.code;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import java.util.Map;
 
@@ -21,7 +20,7 @@ public class Parser {
     }
 
     public static Map<String, Object> parseJson(String content) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> file = mapper.readValue(content, new TypeReference<>() {
         });
         return file;

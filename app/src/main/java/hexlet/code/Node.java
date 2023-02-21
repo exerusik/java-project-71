@@ -1,25 +1,25 @@
 package hexlet.code;
 
 public class Node {
-    private final String description;
+    private final Status description;
     private final String key;
-    private final Object value;
+    private Object value;
     private Object otherValue;
 
-    public Node(String description, String key, Object value) {
+    public Node(Status description, String key, Object value) {
         this.description = description;
         this.key = key;
         this.value = value;
     }
 
-    public Node(String description, String key, Object value, Object otherValue) {
+    public Node(Status description, String key, Object value, Object otherValue) {
         this.description = description;
         this.key = key;
         this.value = value;
         this.otherValue = otherValue;
     }
 
-    public String getDescription() {
+    public Status getDescription() {
         return description;
     }
 

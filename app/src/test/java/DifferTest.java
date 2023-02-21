@@ -10,13 +10,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class DifferTest {
 
-    private String fileYml = "src/main/resources/file2.yml";
-    private String file1Yml = "src/main/resources/file3.yml";
-    private String fileJson = "src/main/resources/file2.json";
-    private String file1Json = "src/main/resources/file3.json";
+    private final String fileYml = "src/main/resources/file2.yml";
+    private final String file1Yml = "src/main/resources/file3.yml";
+    private final String fileJson = "src/main/resources/file2.json";
+    private final String file1Json = "src/main/resources/file3.json";
 
-    private Path trueAnswerPlainStyle = Paths.get("src/test/resources/CheckPlain");
-    private Path trueAnswerStylish = Paths.get("src/test/resources/CheckStylish");
+    private final Path trueAnswerPlainStyle = Paths.get("src/test/resources/CheckPlain");
+    private final Path trueAnswerStylish = Paths.get("src/test/resources/CheckStylish");
 
 
     @Test
