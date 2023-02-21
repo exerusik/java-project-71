@@ -6,14 +6,14 @@ public final class Node {
     private Object value;
     private Object otherValue;
 
-    public Node(Status description, String key, Object value) {
-        this.description = description;
+    public Node(Status status, String key, Object value) {
+        this.description = status;
         this.key = key;
         this.value = value;
     }
 
-    public Node(Status description, String key, Object value, Object otherValue) {
-        this.description = description;
+    public Node(Status status, String key, Object value, Object otherValue) {
+        this.description = status;
         this.key = key;
         this.value = value;
         this.otherValue = otherValue;
