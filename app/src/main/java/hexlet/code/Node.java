@@ -6,17 +6,17 @@ public final class Node {
     private Object value;
     private Object otherValue;
 
-    public Node(Status status, String key, Object value) {
+    public Node(Status status, String keyOfMap, Object valueOfMap) {
         this.description = status;
-        this.key = key;
-        this.value = value;
+        this.key = keyOfMap;
+        this.value = valueOfMap;
     }
 
-    public Node(Status status, String key, Object value, Object otherValue) {
+    public Node(Status status, String keyOfMap, Object valueOfMap, Object otherValueOfMap) {
         this.description = status;
-        this.key = key;
-        this.value = value;
-        this.otherValue = otherValue;
+        this.key = keyOfMap;
+        this.value = valueOfMap;
+        this.otherValue = otherValueOfMap;
     }
 
     public Status getDescription() {
