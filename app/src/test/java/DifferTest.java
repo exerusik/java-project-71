@@ -17,6 +17,7 @@ class DifferTest {
 
     private final Path trueAnswerPlainStyle = Paths.get("src/test/resources/CheckPlain");
     private final Path trueAnswerStylish = Paths.get("src/test/resources/CheckStylish");
+    private final Path trueAnswerJsonStyle = Paths.get("src/test/resources/checkJsonFile.json");
 
 
     @Test
@@ -50,7 +51,7 @@ class DifferTest {
     @Test
     public void testJson() throws Exception {
         String actual = Differ.generate(fileJson, file1Json, "json");
-        String expected = Files.readString(Paths.get("src/test/resources/checkJsonFile.json"));
+        String expected = Files.readString(trueAnswerJsonStyle);
         assertThat(actual).isEqualTo(expected);
 
     }

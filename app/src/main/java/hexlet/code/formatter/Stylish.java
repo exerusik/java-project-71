@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Stylish {
     private static final String SPACE = " ";
-    public static String allDifference(List<Node> mergeDataFromTwoFiles) {
+    public static String allDifference(List<Node> mergeDataFromTwoFiles)  {
         StringBuilder buildString = new StringBuilder("{\n");
 
         for (Node element : mergeDataFromTwoFiles) {
@@ -28,14 +28,14 @@ public class Stylish {
                     buildString.append(SPACE.repeat(2) + "- " + element.getKey() + ": " + element.getValue() + "\n")
                                .append(SPACE.repeat(2)
                                        + "+ "  + element.getKey() + ": " + element.getOtherValue() + "\n");
-                default:
                     break;
+                default:
+                    throw new IllegalArgumentException("don't such status");
+
             }
         }
         buildString.append("}");
 
         return buildString.toString();
     }
-
-
 }

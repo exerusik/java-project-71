@@ -10,7 +10,7 @@ public class Plain {
     private static String added = "Property '%s' was added with value: %s\n";
     private static String deleted = "Property '%s' was removed\n";
     private static String updated = "Property '%s' was updated. From %s to %s\n";
-    public static String getPlain(List<Node> mergeDataFromTwoFiles) {
+    public static String getPlain(List<Node> mergeDataFromTwoFiles)  {
         StringBuilder buildString = new StringBuilder();
         for (Node element : mergeDataFromTwoFiles) {
             Status description = element.getDescription();
@@ -26,8 +26,10 @@ public class Plain {
                     break;
                 case CHANGED :
                     buildString.append(String.format(updated, key, oldValue, newValue));
-                default:
+                case UNCHANGED:
                     break;
+                default:
+                    throw new  IllegalArgumentException("don't such status");
             }
         }
         buildString.deleteCharAt(buildString.length() - 1);

@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
 
 @Command(name = "gendiff", mixinStandardHelpOptions = true, version = "checksum 4.0",
         description = "Compares two configuration files and shows a difference.")
-class App implements Callable<Integer> {
+class App implements Callable<String> {
     @Parameters(index = "0", description = "path to first file.")
     private String filepath1;
     @Parameters(index = "1", description = "path to second file.")
@@ -19,9 +19,13 @@ class App implements Callable<Integer> {
     private String format = "stylish";
 
     @Override
-    public Integer call() throws Exception {
-        System.out.println(Differ.generate(filepath1, filepath2, format));
-        return 0;
+    public String call() {
+        try {
+            System.out.println(Differ.generate(filepath1, filepath2, format));
+        } catch (Exception e) {
+            System.out.println("ERROR_STATUS");
+        }
+        return "SUCCESS_STATUS";
     }
 
     // this example implements Callable, so parsing, error handling and handling user
