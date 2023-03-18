@@ -29,7 +29,7 @@ public class Plain {
                 case UNCHANGED:
                     break;
                 default:
-                    throw new  IllegalArgumentException("don't such status");
+                    throw new RuntimeException("no such status " + description);
             }
         }
         buildString.deleteCharAt(buildString.length() - 1);

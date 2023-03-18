@@ -30,7 +30,7 @@ public class Stylish {
                                        + "+ "  + element.getKey() + ": " + element.getOtherValue() + "\n");
                     break;
                 default:
-                    throw new IllegalArgumentException("don't such status");
+                    throw new RuntimeException("no such status " + description);
 
             }
         }
